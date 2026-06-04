@@ -1,6 +1,6 @@
 # ioniapara.com
 
-Personal site for Ion Iapără, Senior PM in Berlin.
+Personal site for Ion Iapără, PM in Berlin.
 Goal: find collaborators for side projects + writing presence.
 
 ## Design system
