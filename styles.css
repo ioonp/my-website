@@ -184,6 +184,13 @@ footer .footer-links {
   list-style: none;
 }
 
+footer .footer-links li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 footer .footer-links a {
   color: var(--muted);
   text-decoration: none;
@@ -197,6 +204,48 @@ footer .footer-links a:hover {
 /* suppress ↗ on footer icon links */
 footer .footer-links a[target="_blank"]::after {
   content: '';
+}
+
+/* copy button */
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+  line-height: 1;
+}
+
+footer .footer-links li:hover .copy-btn {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  color: var(--text);
+}
+
+.copy-btn svg {
+  width: 11px;
+  height: 11px;
+}
+
+/* copied tooltip */
+.copy-btn[data-copied]::after {
+  content: 'copied';
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: 0;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.65rem;
+  padding: 0.2em 0.5em;
+  border-radius: 2px;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 /* ------------------------------------------------------------
