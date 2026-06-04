@@ -32,24 +32,63 @@
     <!-- project list -->
     <div class="project-list">
 
-      <!-- template — duplicate and fill in for each project
       <article class="project-card">
         <div class="project-meta">
-          <span class="project-status tag tag-start">start</span>
-          <span class="project-date muted">2026-06</span>
+          <span class="tag tag-start">start</span>
+          <span class="project-type muted">web application</span>
+          <span class="project-date muted">2026</span>
+          <span class="project-status-pill status-active">validation phase</span>
         </div>
-        <h2 class="project-title">project name</h2>
-        <p class="project-desc">
-          One or two sentences about what this is and why you're building it.
-        </p>
+        <h2 class="project-title">usha</h2>
+        <p class="project-desc">solving the last 100 meters of navigation — helping people find businesses tucked away in berlin's hinterhöfe, where maps usually give up.</p>
         <div class="project-footer">
-          <span class="project-looking-for muted">looking for: designer, engineer</span>
-          <a href="#" target="_blank" rel="noopener">view →</a>
+          <span class="project-impact muted">working on v1</span>
         </div>
       </article>
-      -->
 
-      <p class="empty-state muted">no projects listed yet — check back soon.</p>
+      <article class="project-card">
+        <div class="project-meta">
+          <span class="tag tag-start">start</span>
+          <span class="project-type muted">youtube channel</span>
+          <span class="project-date muted">2025</span>
+          <span class="project-status-pill status-active">active</span>
+        </div>
+        <h2 class="project-title"><a href="https://www.youtube.com/@VirtualScenicRuns" target="_blank" rel="noopener">virtual scenic runs</a></h2>
+        <p class="project-desc">immersive running videos from places i travel to and explore on foot. a way to share the routes i run.</p>
+        <div class="project-footer">
+          <span class="project-impact muted">10+ videos · ~160 subscribers</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-meta">
+          <span class="tag tag-start">start</span>
+          <span class="project-type muted">webflow website</span>
+          <span class="project-date muted">2024</span>
+          <span class="project-status-pill status-deprecated">deprecated</span>
+        </div>
+        <h2 class="project-title">artfully.ro</h2>
+        <p class="project-desc">a minimalist physical maps store in romania. validated demand on a local marketplace first, then built the shop in webflow.</p>
+        <div class="project-footer">
+          <span class="project-impact muted">~20 sales</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-meta">
+          <span class="tag tag-start">start</span>
+          <span class="project-type muted">chrome extension</span>
+          <span class="project-date muted">2023</span>
+          <span class="project-status-pill status-parked">parked</span>
+        </div>
+        <h2 class="project-title"><a href="https://itinera.world/" target="_blank" rel="noopener">itinera</a></h2>
+        <p class="project-desc">a chrome extension that helps travelers plan a trip in seconds, straight into google calendar, using llms.</p>
+        <div class="project-footer">
+          <span class="project-impact muted">~300 active users</span>
+        </div>
+      </article>
+
+      <!-- add new projects above this line, newest first -->
 
     </div>
 
@@ -143,6 +182,38 @@
       font-size: 0.85rem;
       padding: 1rem 0;
     }
+
+    .project-type {
+      font-size: 0.78rem;
+    }
+
+    .project-title a {
+      text-decoration: none;
+    }
+
+    .project-title a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--muted);
+    }
+
+    .project-impact {
+      font-size: 0.78rem;
+    }
+
+    /* status pills */
+    .project-status-pill {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: lowercase;
+      padding: 0.15em 0.55em;
+      border-radius: 999px;
+    }
+
+    .status-active     { background: #dcfce7; color: #15803d; }
+    .status-parked     { background: #fef9c3; color: #a16207; }
+    .status-deprecated { background: #f4f4f5; color: #a0a09c; }
   </style>
 
   <script src="scripts.js"></script>
