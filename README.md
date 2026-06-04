@@ -1,6 +1,6 @@
 # ioniapara.com
 
-Personal site for Ion Iapară, Senior PM in Berlin.
+Personal site for Ion Iapără, Senior PM in Berlin.
 Goal: find collaborators for side projects + writing presence.
 
 ## Design system
@@ -10,7 +10,7 @@ Goal: find collaborators for side projects + writing presence.
 - **Colors:** #fafaf9 background, #1c1c1a text, #a0a09c muted
 - **Tag colors:** ship/join #2563eb, start #c2820a, write #15803d, life #a0a09c
 - **Nav:** `ion` (left) · `log · projects · writing · now` (right)
-- **Footer:** sticky, frosted glass, `ion iapară · berlin · open to collab` + email/LinkedIn/GitHub
+- **Footer:** sticky, frosted glass, `ion iapără · berlin · open to collab` + email/LinkedIn/GitHub
 - **Motion:** entrance fade-in, respects prefers-reduced-motion
 - **Selection:** inverted (background = text, text = background)
 - **External links:** marked with ↗ (used on Medium links)
@@ -18,7 +18,7 @@ Goal: find collaborators for side projects + writing presence.
 ## Conventions
 
 - All file paths lowercase, no spaces
-- Diacritic `Iapară` in display contexts, `Iapara` in URLs/meta
+- Diacritic `Iapără` in display contexts, `Iapara` in URLs/meta
 - One shared `styles.css`, page-specific styles only when truly page-specific
 - Plain HTML + CSS, no build step, no JS frameworks
 - Vanilla JS only where interactivity is needed (filters on log page)
