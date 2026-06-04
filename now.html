@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>now · ion iapară</title>
+  <meta name="description" content="What Ion Iapară is focused on right now." />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- nav -->
+  <nav>
+    <a href="/" class="nav-logo">ion</a>
+    <ul class="nav-links">
+      <li><a href="log.html">log</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="writing.html">writing</a></li>
+      <li><a href="now.html" aria-current="page">now</a></li>
+    </ul>
+  </nav>
+
+  <!-- main -->
+  <main class="fade-in">
+
+    <header class="page-header">
+      <h1>now</h1>
+      <p class="page-desc">
+        what i'm focused on at the moment.
+        inspired by <a href="https://nownownow.com/about" target="_blank" rel="noopener">nownownow</a>.
+      </p>
+    </header>
+
+    <div class="now-content">
+
+      <section class="now-section">
+        <p class="section-heading">work</p>
+        <p>Senior PM in Berlin. Working on — <span class="muted">[fill in]</span>.</p>
+      </section>
+
+      <section class="now-section">
+        <p class="section-heading">building</p>
+        <p class="muted">nothing public yet — soon.</p>
+      </section>
+
+      <section class="now-section">
+        <p class="section-heading">reading</p>
+        <p class="muted">—</p>
+      </section>
+
+      <section class="now-section">
+        <p class="section-heading">thinking about</p>
+        <p class="muted">—</p>
+      </section>
+
+      <p class="now-updated muted">last updated: <time datetime="2026-06-04">june 2026</time></p>
+
+    </div>
+
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-left">
+      <span>ion iapară · berlin · open to collab</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="mailto:iapara.ion.g@gmail.com" aria-label="email">email</a></li>
+      <li><a href="https://linkedin.com/in/ioniapara" target="_blank" rel="noopener" aria-label="LinkedIn">linkedin</a></li>
+      <li><a href="https://github.com/ioniapara" target="_blank" rel="noopener" aria-label="GitHub">github</a></li>
+    </ul>
+  </footer>
+
+  <style>
+    .page-header {
+      padding: 2rem 0 1.5rem;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-hero);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .page-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .page-desc a {
+      color: var(--text);
+    }
+
+    .now-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .now-section {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .now-section:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .now-section .section-heading {
+      margin-top: 0;
+    }
+
+    .now-section p {
+      margin-bottom: 0;
+    }
+
+    .now-updated {
+      font-size: 0.78rem;
+      margin-top: 1.25rem;
+    }
+  </style>
+
+</body>
+</html>

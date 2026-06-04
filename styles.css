@@ -1,0 +1,320 @@
+/* ============================================================
+   ioniapara.com — shared stylesheet
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Fonts
+   ------------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Departure+Mono&display=swap');
+
+/* ------------------------------------------------------------
+   Custom properties
+   ------------------------------------------------------------ */
+:root {
+  --bg:       #fafaf9;
+  --text:     #1c1c1a;
+  --muted:    #a0a09c;
+  --border:   #e4e4e0;
+
+  /* tag colours */
+  --tag-ship:  #2563eb;
+  --tag-join:  #2563eb;
+  --tag-start: #c2820a;
+  --tag-write: #15803d;
+  --tag-life:  #a0a09c;
+
+  --font-body: 'JetBrains Mono', monospace;
+  --font-hero: 'Departure Mono', monospace;
+
+  --nav-height:    48px;
+  --footer-height: 48px;
+  --max-w:         680px;
+  --space:         1.5rem;
+}
+
+/* ------------------------------------------------------------
+   Reset & base
+   ------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + var(--space) * 2) var(--space) calc(var(--footer-height) + var(--space) * 2);
+}
+
+/* ------------------------------------------------------------
+   Selection
+   ------------------------------------------------------------ */
+::selection {
+  background-color: var(--text);
+  color: var(--bg);
+}
+
+/* ------------------------------------------------------------
+   Typography
+   ------------------------------------------------------------ */
+h1, h2, h3, h4 {
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+h3 { font-size: 1rem; }
+
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--muted);
+  transition: text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  text-decoration-color: var(--text);
+}
+
+/* external link indicator */
+a[target="_blank"]::after {
+  content: ' ↗';
+  font-size: 0.8em;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------
+   Nav
+   ------------------------------------------------------------ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space);
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  font-size: 0.875rem;
+}
+
+nav .nav-logo {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+nav .nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav .nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+nav .nav-links a:hover,
+nav .nav-links a[aria-current="page"] {
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------
+   Footer
+   ------------------------------------------------------------ */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--footer-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space);
+  background-color: rgba(250, 250, 249, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+  z-index: 100;
+}
+
+footer .footer-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+footer .footer-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+footer .footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+footer .footer-links a:hover {
+  color: var(--text);
+}
+
+/* suppress ↗ on footer icon links */
+footer .footer-links a[target="_blank"]::after {
+  content: '';
+}
+
+/* ------------------------------------------------------------
+   Tags
+   ------------------------------------------------------------ */
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  padding: 0.1em 0.5em;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.tag-ship, .tag-join  { color: var(--tag-ship);  }
+.tag-start             { color: var(--tag-start); }
+.tag-write             { color: var(--tag-write); }
+.tag-life              { color: var(--tag-life);  }
+
+/* ------------------------------------------------------------
+   Log entries
+   ------------------------------------------------------------ */
+.log-entry {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 0 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.log-entry:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.log-date {
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding-top: 0.1rem;
+  white-space: nowrap;
+}
+
+.log-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.log-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.log-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------
+   Section headings
+   ------------------------------------------------------------ */
+.section-heading {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+/* ------------------------------------------------------------
+   Entrance animation
+   ------------------------------------------------------------ */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fade-in 0.4s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   Utilities
+   ------------------------------------------------------------ */
+.muted  { color: var(--muted); }
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+  :root { --space: 1rem; }
+
+  .log-entry {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  footer .footer-left span {
+    display: none;
+  }
+}

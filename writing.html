@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>writing · ion iapară</title>
+  <meta name="description" content="Articles and essays by Ion Iapară on product, ideas, and life." />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- nav -->
+  <nav>
+    <a href="/" class="nav-logo">ion</a>
+    <ul class="nav-links">
+      <li><a href="log.html">log</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="writing.html" aria-current="page">writing</a></li>
+      <li><a href="now.html">now</a></li>
+    </ul>
+  </nav>
+
+  <!-- main -->
+  <main class="fade-in">
+
+    <header class="page-header">
+      <h1>writing</h1>
+      <p class="page-desc">
+        essays and articles, mostly on product and ideas.
+        published on <a href="https://medium.com/@ioniapara" target="_blank" rel="noopener">medium</a>.
+      </p>
+    </header>
+
+    <!-- writing list -->
+    <div class="writing-list">
+
+      <!-- template — duplicate and fill in for each article
+      <article class="writing-entry">
+        <div class="writing-meta">
+          <span class="writing-date muted">2026-06</span>
+          <span class="writing-platform muted">medium</span>
+        </div>
+        <h2 class="writing-title">
+          <a href="https://medium.com/…" target="_blank" rel="noopener">article title</a>
+        </h2>
+        <p class="writing-desc">One sentence that captures what the piece is about.</p>
+      </article>
+      -->
+
+      <p class="empty-state muted">no articles listed yet — check back soon.</p>
+
+    </div>
+
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-left">
+      <span>ion iapară · berlin · open to collab</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="mailto:iapara.ion.g@gmail.com" aria-label="email">email</a></li>
+      <li><a href="https://linkedin.com/in/ioniapara" target="_blank" rel="noopener" aria-label="LinkedIn">linkedin</a></li>
+      <li><a href="https://github.com/ioniapara" target="_blank" rel="noopener" aria-label="GitHub">github</a></li>
+    </ul>
+  </footer>
+
+  <style>
+    .page-header {
+      padding: 2rem 0 1.5rem;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-hero);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .page-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .page-desc a {
+      color: var(--text);
+    }
+
+    /* writing entries */
+    .writing-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .writing-entry {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .writing-entry:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .writing-meta {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .writing-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .writing-title a {
+      text-decoration: none;
+    }
+
+    .writing-title a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--muted);
+    }
+
+    .writing-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0;
+      max-width: 520px;
+    }
+
+    .empty-state {
+      font-size: 0.85rem;
+      padding: 1rem 0;
+    }
+  </style>
+
+</body>
+</html>

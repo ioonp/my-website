@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ion iapară</title>
+  <meta name="description" content="Senior PM in Berlin. Building side projects, writing about product and ideas." />
+  <meta name="author" content="Ion Iapara" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ion iapară" />
+  <meta property="og:description" content="Senior PM in Berlin. Building side projects, writing about product and ideas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ioniapara.com" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- nav -->
+  <nav>
+    <a href="/" class="nav-logo">ion</a>
+    <ul class="nav-links">
+      <li><a href="log.html">log</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="writing.html">writing</a></li>
+      <li><a href="now.html">now</a></li>
+    </ul>
+  </nav>
+
+  <!-- main -->
+  <main>
+
+    <!-- hero -->
+    <section class="hero fade-in" aria-label="Introduction">
+      <h1 class="hero-name">ion iapară</h1>
+      <p class="hero-bio">
+        senior pm in berlin. building side projects, writing about product and ideas.
+        open to collaborators — if something below catches your eye,
+        <a href="mailto:iapara.ion.g@gmail.com">say hi</a>.
+      </p>
+    </section>
+
+    <!-- recent log -->
+    <section aria-label="Recent log">
+      <p class="section-heading">recent</p>
+
+      <div class="log-entry">
+        <span class="log-date">2026-06-04</span>
+        <div class="log-body">
+          <span class="log-title">launched personal site <span class="tag tag-ship">ship</span></span>
+          <span class="log-desc">first version live — minimal monospace, no js frameworks.</span>
+        </div>
+      </div>
+
+      <!-- add more entries here as the log grows -->
+
+      <p class="view-all"><a href="log.html">view full log →</a></p>
+    </section>
+
+    <!-- condensed projects -->
+    <section aria-label="Projects">
+      <p class="section-heading">projects</p>
+
+      <ul class="condensed-list">
+        <li>
+          <span class="item-title">—</span>
+          <span class="muted">nothing shipped yet — check back soon.</span>
+        </li>
+      </ul>
+
+      <p class="view-all"><a href="projects.html">view all projects →</a></p>
+    </section>
+
+    <!-- condensed writing -->
+    <section aria-label="Writing">
+      <p class="section-heading">writing</p>
+
+      <ul class="condensed-list">
+        <li>
+          <span class="item-title">—</span>
+          <span class="muted">nothing published yet — check back soon.</span>
+        </li>
+      </ul>
+
+      <p class="view-all"><a href="writing.html">view all writing →</a></p>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-left">
+      <span>ion iapară · berlin · open to collab</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="mailto:iapara.ion.g@gmail.com" aria-label="email">email</a></li>
+      <li><a href="https://linkedin.com/in/ioniapara" target="_blank" rel="noopener" aria-label="LinkedIn">linkedin</a></li>
+      <li><a href="https://github.com/ioniapara" target="_blank" rel="noopener" aria-label="GitHub">github</a></li>
+    </ul>
+  </footer>
+
+  <style>
+    /* page-specific styles */
+    .hero {
+      padding: 2rem 0 2.5rem;
+    }
+
+    .hero-name {
+      font-family: var(--font-hero);
+      font-size: clamp(2rem, 8vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-bio {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .hero-bio a {
+      color: var(--text);
+    }
+
+    .condensed-list {
+      list-style: none;
+      font-size: 0.875rem;
+    }
+
+    .condensed-list li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .condensed-list li:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .item-title {
+      font-weight: 500;
+    }
+
+    .view-all {
+      font-size: 0.8rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0;
+    }
+
+    .view-all a {
+      color: var(--muted);
+      text-decoration-color: transparent;
+    }
+
+    .view-all a:hover {
+      color: var(--text);
+      text-decoration-color: var(--muted);
+    }
+
+    /* suppress ↗ on internal nav links */
+    .view-all a::after {
+      content: '';
+    }
+  </style>
+
+</body>
+</html>

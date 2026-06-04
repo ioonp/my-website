@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>projects · ion iapară</title>
+  <meta name="description" content="Side projects Ion Iapară is building. Open to collaborators." />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- nav -->
+  <nav>
+    <a href="/" class="nav-logo">ion</a>
+    <ul class="nav-links">
+      <li><a href="log.html">log</a></li>
+      <li><a href="projects.html" aria-current="page">projects</a></li>
+      <li><a href="writing.html">writing</a></li>
+      <li><a href="now.html">now</a></li>
+    </ul>
+  </nav>
+
+  <!-- main -->
+  <main class="fade-in">
+
+    <header class="page-header">
+      <h1>projects</h1>
+      <p class="page-desc">things i'm building. if something interests you, <a href="mailto:iapara.ion.g@gmail.com">reach out</a>.</p>
+    </header>
+
+    <!-- project list -->
+    <div class="project-list">
+
+      <!-- template — duplicate and fill in for each project
+      <article class="project-card">
+        <div class="project-meta">
+          <span class="project-status tag tag-start">start</span>
+          <span class="project-date muted">2026-06</span>
+        </div>
+        <h2 class="project-title">project name</h2>
+        <p class="project-desc">
+          One or two sentences about what this is and why you're building it.
+        </p>
+        <div class="project-footer">
+          <span class="project-looking-for muted">looking for: designer, engineer</span>
+          <a href="#" target="_blank" rel="noopener">view →</a>
+        </div>
+      </article>
+      -->
+
+      <p class="empty-state muted">no projects listed yet — check back soon.</p>
+
+    </div>
+
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-left">
+      <span>ion iapară · berlin · open to collab</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="mailto:iapara.ion.g@gmail.com" aria-label="email">email</a></li>
+      <li><a href="https://linkedin.com/in/ioniapara" target="_blank" rel="noopener" aria-label="LinkedIn">linkedin</a></li>
+      <li><a href="https://github.com/ioniapara" target="_blank" rel="noopener" aria-label="GitHub">github</a></li>
+    </ul>
+  </footer>
+
+  <style>
+    .page-header {
+      padding: 2rem 0 1.5rem;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-hero);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .page-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .page-desc a {
+      color: var(--text);
+    }
+
+    /* project cards */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .project-card {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-card:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      max-width: 520px;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-looking-for {
+      font-size: 0.78rem;
+    }
+
+    .empty-state {
+      font-size: 0.85rem;
+      padding: 1rem 0;
+    }
+  </style>
+
+</body>
+</html>

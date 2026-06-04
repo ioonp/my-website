@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>log · ion iapară</title>
+  <meta name="description" content="A running changelog of things Ion Iapară is building, starting, writing, and living." />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- nav -->
+  <nav>
+    <a href="/" class="nav-logo">ion</a>
+    <ul class="nav-links">
+      <li><a href="log.html" aria-current="page">log</a></li>
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="writing.html">writing</a></li>
+      <li><a href="now.html">now</a></li>
+    </ul>
+  </nav>
+
+  <!-- main -->
+  <main class="fade-in">
+
+    <header class="page-header">
+      <h1>log</h1>
+      <p class="page-desc">a running changelog — things shipped, started, written, and lived.</p>
+    </header>
+
+    <!-- filters -->
+    <div class="filters" role="group" aria-label="Filter by tag">
+      <button class="filter-btn active" data-filter="all">all</button>
+      <button class="filter-btn" data-filter="ship">ship</button>
+      <button class="filter-btn" data-filter="start">start</button>
+      <button class="filter-btn" data-filter="write">write</button>
+      <button class="filter-btn" data-filter="life">life</button>
+      <button class="filter-btn" data-filter="join">join</button>
+    </div>
+
+    <!-- log entries -->
+    <div class="log-list" id="log-list">
+
+      <article class="log-entry" data-tags="ship">
+        <span class="log-date">2026-06-04</span>
+        <div class="log-body">
+          <span class="log-title">
+            launched personal site
+            <span class="tag tag-ship">ship</span>
+          </span>
+          <span class="log-desc">first version live — minimal monospace, no js frameworks. plain html + css.</span>
+        </div>
+      </article>
+
+      <!-- add new entries above this line, newest first -->
+
+    </div>
+
+    <p class="log-empty" id="log-empty" hidden>no entries for this filter.</p>
+
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-left">
+      <span>ion iapară · berlin · open to collab</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="mailto:iapara.ion.g@gmail.com" aria-label="email">email</a></li>
+      <li><a href="https://linkedin.com/in/ioniapara" target="_blank" rel="noopener" aria-label="LinkedIn">linkedin</a></li>
+      <li><a href="https://github.com/ioniapara" target="_blank" rel="noopener" aria-label="GitHub">github</a></li>
+    </ul>
+  </footer>
+
+  <style>
+    .page-header {
+      padding: 2rem 0 1.5rem;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-hero);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .page-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    /* filters */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      padding: 0.2em 0.7em;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    .filter-btn.active {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    /* hide filtered-out entries */
+    .log-entry[hidden] {
+      display: none;
+    }
+
+    .log-empty {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 1rem 0;
+    }
+  </style>
+
+  <script>
+    const buttons  = document.querySelectorAll('.filter-btn');
+    const entries  = document.querySelectorAll('.log-entry');
+    const empty    = document.getElementById('log-empty');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // update active button
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // show / hide entries
+        let visible = 0;
+        entries.forEach(entry => {
+          const tags = (entry.dataset.tags || '').split(' ');
+          const show = filter === 'all' || tags.includes(filter);
+          entry.hidden = !show;
+          if (show) visible++;
+        });
+
+        empty.hidden = visible > 0;
+      });
+    });
+  </script>
+
+</body>
+</html>
