@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#fafaf9"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="3.5" fill="#fafaf9" stroke="#e4e4e0" stroke-width="1"/>
   <text
     x="16" y="16"
     font-family="JetBrains Mono, monospace"
-    font-size="20"
+    font-size="18"
     font-weight="500"
     fill="#1c1c1a"
     text-anchor="middle"
-    dominant-baseline="central">i</text>
+    dominant-baseline="central">ii</text>
 </svg>
