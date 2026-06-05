@@ -39,7 +39,7 @@ const SITE = {
     {
       date: '2025-10',
       tags: ['start', 'side'],
-      title: 'virtual scenic runs — youtube channel on immersive ruins',
+      title: 'virtual scenic runs — youtube channel on immersive runs',
       link: 'https://www.youtube.com/@VirtualScenicRuns',
       linkedPart: 'virtual scenic runs'
     },
@@ -154,7 +154,7 @@ const SITE = {
     {
       date: '2020-09',
       tags: ['life'],
-      title: 'moved to berlin and rebuilt from zero'
+      title: 'moved to berlin for the startup scene'
     },
     {
       date: '~2013',
