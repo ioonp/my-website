@@ -41,8 +41,8 @@
       <h1 class="hero-name">ion iapără</h1>
       <p class="hero-bio">
         pm in berlin. building side projects, writing about product and ideas.
-        open to good conversations — if something below catches your eye,
-        <a href="mailto:iapara.ion.g@gmail.com">say hi</a>.
+        open to good conversations — if something below catches your eye — or you just want to say hello —
+        <a href="mailto:iapara.ion.g@gmail.com" class="say-hi" id="say-hi-link"><span class="say-hi-text">say hi</span><span class="say-hi-arrow" aria-hidden="true"> →</span></a>.
       </p>
     </section>
 
@@ -153,9 +153,78 @@
 
     /* side project tag colour (matches log page) */
     .tag-side { color: #7c3aed; }
+
+    /* say-hi link */
+    .say-hi {
+      text-decoration: none;
+      color: var(--text);
+      position: relative;
+      background-image: linear-gradient(var(--text), var(--text));
+      background-size: 0% 1px;
+      background-position: left 100%;
+      background-repeat: no-repeat;
+      transition: background-size 0.35s ease;
+    }
+
+    .say-hi:hover {
+      background-size: 100% 1px;
+    }
+
+    /* suppress the global ↗ on this link */
+    .say-hi::after { content: ''; }
+
+    .say-hi-text {
+      transition: opacity 0.15s ease;
+    }
+
+    .say-hi-arrow {
+      display: inline-block;
+      opacity: 0.4;
+      transform: translateX(0);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      font-size: 0.85em;
+    }
+
+    .say-hi:hover .say-hi-arrow {
+      transform: translateX(3px);
+      opacity: 1;
+    }
   </style>
 
   <script src="/data.js"></script>
   <script src="/scripts.js"></script>
+  <script>
+    (function () {
+      const PHRASES = ['say hi', 'wave back', 'send a note', 'pop in'];
+      let idx = 0, timer = null;
+
+      const link     = document.getElementById('say-hi-link');
+      const textSpan = link.querySelector('.say-hi-text');
+
+      function setPhrase(phrase) {
+        textSpan.style.opacity = '0';
+        setTimeout(function () {
+          textSpan.textContent = phrase;
+          textSpan.style.opacity = '1';
+        }, 130);
+      }
+
+      link.addEventListener('mouseenter', function () {
+        idx = 1;
+        setPhrase(PHRASES[idx]);
+        timer = setInterval(function () {
+          idx = (idx + 1) % PHRASES.length;
+          setPhrase(PHRASES[idx]);
+        }, 750);
+      });
+
+      link.addEventListener('mouseleave', function () {
+        clearInterval(timer);
+        timer = null;
+        idx = 0;
+        setPhrase(PHRASES[0]);
+      });
+    }());
+  </script>
 </body>
 </html>
