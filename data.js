@@ -9,161 +9,190 @@ const SITE = {
 
   /* ----------------------------------------------------------
      LOG
-     tags: any combination of 'ship' | 'start' | 'write' | 'join' | 'life' | 'side'
-     link: URL — for write entries links the full title,
-                 for side projects links the leading name (before ' — ')
-     linkedPart: (optional) if only part of the title should be linked
+     tags:  'ship' | 'write' | 'life'  (or empty [])
+     track: 'mrge' | 'audibene' | 'lemonone' | 'le wagon' | 'side' | 'life' | null
+            — shown as a label under the date; null = no label (write entries)
+     link:  URL — links the full title (write) or linkedPart (side projects)
+     linkedPart: (optional) only this portion of the title gets the link
   ---------------------------------------------------------- */
   log: [
     {
       date: '2026-06',
       tags: ['ship'],
+      track: 'mrge',
       title: 'merging two core products into one platform · 9+ engineers'
     },
     {
       date: '2026-06',
       tags: ['ship'],
+      track: 'side',
       title: 'launched personal site',
       desc: 'first version live — minimal monospace, no js frameworks. plain html + css.'
     },
     {
       date: '2026-04',
-      tags: ['start', 'side'],
+      tags: [],
+      track: 'side',
       title: 'began "last 100 meters of navigation" problem validation · 12 berlin studios'
     },
     {
       date: '2026-02',
       tags: ['ship'],
+      track: 'mrge',
       title: 'llm-powered summarization, live at mrge'
     },
     {
       date: '2025-10',
-      tags: ['start', 'side'],
-      title: 'virtual scenic runs — youtube channel on immersive runs',
+      tags: [],
+      track: 'side',
+      title: 'started virtual scenic runs — youtube channel on immersive runs',
       link: 'https://www.youtube.com/@VirtualScenicRuns',
       linkedPart: 'virtual scenic runs'
     },
     {
       date: '2025-08',
       tags: ['write'],
+      track: null,
       title: '"re-learning product discovery"',
       link: 'https://medium.com/design-bootcamp/re-learning-product-discovery-aac5aae0d14e'
     },
     {
       date: '2025-07',
       tags: ['ship'],
+      track: 'mrge',
       title: 'shipped mvp for a strategic initiative · onboarded 20 new customers'
     },
     {
       date: '2025-04',
       tags: ['ship'],
+      track: 'mrge',
       title: 'built customer-focused apis · enabled enterprise upsell'
     },
     {
       date: '2025-03',
       tags: ['write'],
+      track: null,
       title: '"how to bring structure to a chaotic project in jira"',
       link: 'https://medium.com/@ion.iapara/how-to-bring-structure-to-a-chaotic-project-in-jira-676cf6e053c7'
     },
     {
       date: '2025-03',
       tags: ['write'],
+      track: null,
       title: '"lovable vs v0 — prompting capabilities"',
       link: 'https://medium.com/design-bootcamp/lovable-vs-v0-prompting-capabilities-0a9e98250df5'
     },
     {
       date: '2025-02',
       tags: ['write'],
+      track: null,
       title: '"build an mvp on replit under $10"',
       link: 'https://medium.com/@ion.iapara/build-an-mvp-on-replit-under-10-2644815b1207'
     },
     {
       date: '2025-01',
       tags: ['ship'],
+      track: 'mrge',
       title: 'built internal tooling that cleared commercial bottlenecks'
     },
     {
       date: '2024-12',
       tags: ['ship'],
+      track: 'mrge',
       title: 'billing migration unblocked · 60+ networks, shipped in 2 months'
     },
     {
       date: '2024-11',
-      tags: ['join'],
-      title: 'promoted to product manager at mrge'
+      tags: [],
+      track: 'mrge',
+      title: 'promoted to pm at mrge'
     },
     {
       date: '2024-09',
       tags: ['ship'],
+      track: 'mrge',
       title: 'shipped customer self-service · designed the mockups myself'
     },
     {
       date: '2024-08',
-      tags: ['start', 'side'],
-      title: 'artfully.ro — minimalist physical maps, ~20 sold via emag',
+      tags: [],
+      track: 'side',
+      title: 'launched artfully.ro — minimalist physical maps, ~20 sold via emag',
       linkedPart: 'artfully.ro'
     },
     {
       date: '2024-04',
       tags: ['ship'],
+      track: 'mrge',
       title: 'commission coverage 20% → 90% across 60+ network apis'
     },
     {
       date: '2023-11',
-      tags: ['join'],
-      title: 'mrge group as a junior product manager'
+      tags: [],
+      track: 'mrge',
+      title: 'joined mrge as junior pm'
     },
     {
       date: '2023-10',
       tags: ['write'],
+      track: null,
       title: '"how i learned figma through a challenge"',
       link: 'https://medium.com/design-bootcamp/how-i-learned-figma-through-a-challenge-as-a-product-manager-9200ec261517'
     },
     {
       date: '2023-09',
-      tags: ['start', 'side'],
-      title: 'itinera — plan your trip in seconds',
+      tags: [],
+      track: 'side',
+      title: 'built itinera — chrome extension for trip planning with llms',
       link: 'https://itinera.world/',
       linkedPart: 'itinera'
     },
     {
       date: '2023-07',
       tags: ['ship'],
+      track: 'mrge',
       title: 'ga4 migration live across 8 markets'
     },
     {
       date: '2023-03',
       tags: ['ship'],
+      track: 'mrge',
       title: 'rebuilt the questionnaire builder in 3 weeks'
     },
     {
       date: '2022-10',
-      tags: ['join'],
-      title: 'audibene as a product manager'
+      tags: [],
+      track: 'audibene',
+      title: 'joined audibene as pm'
     },
     {
       date: '2022-06',
-      tags: ['join'],
+      tags: [],
+      track: 'le wagon',
       title: 'le wagon — web development bootcamp in berlin'
     },
     {
       date: '2021-02',
-      tags: ['join'],
-      title: 'lemonone as a business development manager'
+      tags: [],
+      track: 'lemonone',
+      title: 'joined lemonone as bdm'
     },
     {
       date: '2020-09',
       tags: ['life'],
+      track: 'life',
       title: 'moved to berlin for the startup scene'
     },
     {
       date: '~2013',
       tags: ['life'],
+      track: 'life',
       title: 'medaled at the national junior championship · 1500m, 5k, 10k'
     },
     {
       date: '—',
       tags: ['life'],
+      track: 'life',
       title: 'grew up in a small village in moldova'
     }
   ],

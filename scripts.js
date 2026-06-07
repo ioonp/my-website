@@ -36,15 +36,20 @@ function renderLogPage() {
   if (!list) return;
 
   list.innerHTML = SITE.log.map(entry => {
-    const isSide = entry.tags.includes('side');
     const tagsHtml = entry.tags.map(t => tag(t)).join(' ');
     const descHtml = entry.desc ? `<span class="log-desc">${entry.desc}</span>` : '';
+    const trackHtml = entry.track
+      ? `<button class="log-track" data-track-filter="${entry.track}">${entry.track}</button>`
+      : '';
 
     return `
-      <article class="log-entry${isSide ? ' log-entry-side' : ''}" data-tags="${entry.tags.join(' ')}">
-        <span class="log-date">${entry.date}</span>
+      <article class="log-entry" data-tags="${entry.tags.join(' ')}" data-track="${entry.track || ''}">
+        <span class="log-date">
+          ${entry.date}
+          ${trackHtml}
+        </span>
         <div class="log-body">
-          <span class="log-title">${logTitleHtml(entry)} ${tagsHtml}</span>
+          <span class="log-title">${logTitleHtml(entry)}${tagsHtml ? ' ' + tagsHtml : ''}</span>
           ${descHtml}
         </div>
       </article>`;
@@ -54,25 +59,58 @@ function renderLogPage() {
 }
 
 function initLogFilters() {
-  const buttons = document.querySelectorAll('.filter-btn');
-  const empty   = document.getElementById('log-empty');
+  const tagButtons = document.querySelectorAll('.filter-btn');
+  const empty      = document.getElementById('log-empty');
+  let activeTag    = 'all';
+  let activeTrack  = null;
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  function applyFilters() {
+    let visible = 0;
+    document.querySelectorAll('.log-entry').forEach(entry => {
+      const tags  = (entry.dataset.tags  || '').split(' ');
+      const track = entry.dataset.track  || '';
 
-      let visible = 0;
-      document.querySelectorAll('.log-entry').forEach(entry => {
-        const tags = (entry.dataset.tags || '').split(' ');
-        const show = filter === 'all' || tags.includes(filter);
-        entry.hidden = !show;
-        if (show) visible++;
-      });
+      const tagMatch   = activeTag   === 'all' || tags.includes(activeTag);
+      const trackMatch = !activeTrack || track === activeTrack;
+      const show = tagMatch && trackMatch;
 
-      if (empty) empty.hidden = visible > 0;
+      entry.hidden = !show;
+      if (show) visible++;
     });
+    if (empty) empty.hidden = visible > 0;
+
+    // sync track label active states
+    document.querySelectorAll('.log-track').forEach(btn => {
+      btn.classList.toggle('track-active', btn.dataset.trackFilter === activeTrack);
+    });
+  }
+
+  // top-bar tag filters
+  tagButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTag   = btn.dataset.filter;
+      activeTrack = null;                     // clear track filter
+      tagButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    });
+  });
+
+  // track label filters (delegated — labels are rendered after this runs)
+  document.getElementById('log-list').addEventListener('click', e => {
+    const btn = e.target.closest('.log-track');
+    if (!btn) return;
+    const clicked = btn.dataset.trackFilter;
+    if (activeTrack === clicked) {
+      // toggle off
+      activeTrack = null;
+    } else {
+      activeTrack = clicked;
+      // reset tag filter to 'all'
+      activeTag = 'all';
+      tagButtons.forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+    }
+    applyFilters();
   });
 }
 

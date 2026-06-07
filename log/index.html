@@ -38,11 +38,8 @@
     <div class="filters" role="group" aria-label="Filter by tag">
       <button class="filter-btn active" data-filter="all">all</button>
       <button class="filter-btn" data-filter="ship">ship</button>
-      <button class="filter-btn" data-filter="start">start</button>
       <button class="filter-btn" data-filter="write">write</button>
       <button class="filter-btn" data-filter="life">life</button>
-      <button class="filter-btn" data-filter="join">join</button>
-      <button class="filter-btn filter-btn-side" data-filter="side">side projects</button>
     </div>
 
     <!-- log entries — newest first -->
@@ -117,22 +114,33 @@
       border-color: var(--text);
     }
 
-    /* side project filter button — subtle purple tint when active */
-    .filter-btn-side.active {
-      color: #7c3aed;
-      border-color: #7c3aed;
+    /* widen date column to fit track label */
+    .log-list .log-entry {
+      grid-template-columns: 90px 1fr;
     }
 
-    /* side project tag */
-    .tag-side {
-      color: #7c3aed;
+    /* track label */
+    .log-track {
+      display: inline-block;
+      margin-top: 3px;
+      font-size: 11px;
+      color: #a8a59a;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: var(--font-body);
+      text-align: left;
+      transition: color 0.15s ease;
     }
 
-    /* side project entry — subtle left accent */
-    .log-entry-side {
-      border-left: 2px solid #7c3aed;
-      padding-left: 0.75rem;
-      margin-left: -0.75rem;
+    .log-track:hover {
+      color: var(--text);
+    }
+
+    .log-track.track-active {
+      color: var(--text);
+      font-weight: 500;
     }
 
     /* hide filtered-out entries */
@@ -147,32 +155,7 @@
     }
   </style>
 
-  <script>
-    const buttons  = document.querySelectorAll('.filter-btn');
-    const entries  = document.querySelectorAll('.log-entry');
-    const empty    = document.getElementById('log-empty');
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-
-        // update active button
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        // show / hide entries
-        let visible = 0;
-        entries.forEach(entry => {
-          const tags = (entry.dataset.tags || '').split(' ');
-          const show = filter === 'all' || tags.includes(filter);
-          entry.hidden = !show;
-          if (show) visible++;
-        });
-
-        empty.hidden = visible > 0;
-      });
-    });
-  </script>
 
   <script src="/data.js"></script>
   <script src="/scripts.js"></script>
