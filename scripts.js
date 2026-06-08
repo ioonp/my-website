@@ -168,11 +168,13 @@ function renderHomePage() {
   if (logEl) {
     logEl.innerHTML = SITE.log.slice(0, 4).map(entry => {
       const tagsHtml = entry.tags.map(t => tag(t)).join(' ');
+      const descHtml = entry.desc ? `<span class="log-desc">${entry.desc}</span>` : '';
       return `
         <div class="log-entry">
           <span class="log-date">${entry.date}</span>
           <div class="log-body">
-            <span class="log-title">${logTitleHtml(entry)} ${tagsHtml}</span>
+            <span class="log-title">${logTitleHtml(entry)}${tagsHtml ? ' ' + tagsHtml : ''}</span>
+            ${descHtml}
           </div>
         </div>`;
     }).join('');
