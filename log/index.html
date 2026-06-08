@@ -34,6 +34,12 @@
       <p class="page-desc">a cv-shaped log — things shipped, started, written, and lived.</p>
     </header>
 
+    <!-- pinned current role -->
+    <div class="pinned-role">
+      <p class="pinned-label">currently</p>
+      <p class="pinned-text">pm @ mrge — leading a platform merge across two b2b products and 9+ engineers</p>
+    </div>
+
     <!-- filters -->
     <div class="filters" role="group" aria-label="Filter by tag">
       <button class="filter-btn active" data-filter="all">all</button>
@@ -42,8 +48,15 @@
       <button class="filter-btn" data-filter="life">life</button>
     </div>
 
+    <!-- emphasis toggle -->
+    <div class="weight-toggle" role="group" aria-label="emphasize work or side entries">
+      <span class="weight-toggle-label muted">emphasize</span>
+      <button class="weight-btn active" data-weight="work" aria-pressed="true">work</button>
+      <button class="weight-btn" data-weight="side" aria-pressed="false">side</button>
+    </div>
+
     <!-- log entries — newest first -->
-    <div class="log-list" id="log-list">
+    <div class="log-list" id="log-list" data-emphasis="work">
 
     </div>
 
@@ -80,6 +93,28 @@
     .page-desc {
       font-size: 0.85rem;
       color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    /* pinned current role */
+    .pinned-role {
+      border-left: 3px solid var(--tag-ship);
+      border-radius: 0;
+      padding: 0.5rem 0 0.5rem 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .pinned-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .pinned-text {
+      font-size: 0.85rem;
       margin-bottom: 0;
     }
 
@@ -141,6 +176,63 @@
     .log-track.track-active {
       color: var(--text);
       font-weight: 500;
+    }
+
+    /* emphasis toggle */
+    .weight-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .weight-toggle-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* mirrors .filter-btn's look (kept separate on purpose — sharing that
+       class would make initLogFilters' querySelectorAll('.filter-btn')
+       pick these up too and break both controls) */
+    .weight-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      padding: 0.2em 0.7em;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .weight-btn:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    .weight-btn.active {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    /* reserve the bar's space on every entry — toggling only flips the border colour, never reflows */
+    .log-list .log-entry {
+      border-left: 2px solid transparent;
+      border-radius: 0;
+      padding-left: 0.6rem;
+    }
+
+    .log-list[data-emphasis="work"] .log-entry[data-kind="work"],
+    .log-list[data-emphasis="side"] .log-entry[data-kind="side"] {
+      border-left-color: var(--text);
+    }
+
+    .log-list[data-emphasis="work"] .log-entry[data-kind="side"] .log-title,
+    .log-list[data-emphasis="side"] .log-entry[data-kind="work"] .log-title {
+      color: var(--muted);
+      font-weight: 400;
     }
 
     /* hide filtered-out entries */

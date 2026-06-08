@@ -10,6 +10,14 @@ function tag(type) {
   return `<span class="tag tag-${type}">${type === 'side' ? 'side project' : type}</span>`;
 }
 
+/* derive a log entry's emphasis "kind" from its track —
+   mrge / audibene / lemonone are work, everything else (side projects,
+   writing, life, education) is side. keeps data.js free of hand-labelling. */
+const WORK_TRACKS = ['mrge', 'audibene', 'lemonone'];
+function entryKind(entry) {
+  return WORK_TRACKS.includes(entry.track) ? 'work' : 'side';
+}
+
 function logTitleHtml(entry) {
   if (!entry.link) return entry.title;
   // if only part of the title should be linked, replace that part
@@ -43,7 +51,7 @@ function renderLogPage() {
       : '';
 
     return `
-      <article class="log-entry" data-tags="${entry.tags.join(' ')}" data-track="${entry.track || ''}">
+      <article class="log-entry" data-tags="${entry.tags.join(' ')}" data-track="${entry.track || ''}" data-kind="${entryKind(entry)}">
         <span class="log-date">
           ${entry.date}
           ${trackHtml}
@@ -56,6 +64,7 @@ function renderLogPage() {
   }).join('');
 
   initLogFilters();
+  initWeightToggle();
 }
 
 function initLogFilters() {
@@ -111,6 +120,27 @@ function initLogFilters() {
       tagButtons.forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
     }
     applyFilters();
+  });
+}
+
+/* work/side emphasis toggle — independent of the tag filter above.
+   never hides entries; just flips a single data-emphasis attribute on
+   the list, which CSS combines with each entry's own data-kind. */
+function initWeightToggle() {
+  const buttons = document.querySelectorAll('.weight-btn');
+  const list    = document.getElementById('log-list');
+  if (!list || !buttons.length) return;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const weight = btn.dataset.weight;
+      list.setAttribute('data-emphasis', weight);
+      buttons.forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-pressed', String(isActive));
+      });
+    });
   });
 }
 
