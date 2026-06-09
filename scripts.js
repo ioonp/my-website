@@ -196,7 +196,7 @@ function renderHomePage() {
   // recent log — first 4 entries
   const logEl = document.getElementById('home-log');
   if (logEl) {
-    logEl.innerHTML = SITE.log.slice(0, 4).map(entry => {
+    logEl.innerHTML = SITE.log.filter(e => WORK_TRACKS.includes(e.track)).slice(0, 4).map(entry => {
       const tagsHtml = entry.tags.map(t => tag(t)).join(' ');
       const descHtml = entry.desc ? `<span class="log-desc">${entry.desc}</span>` : '';
       return `
